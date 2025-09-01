@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainViewModel(
     private val api: ApiService
@@ -17,9 +18,12 @@ class MainViewModel(
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
+    var response: String? = null
+
     fun getWeather(){
         scope.launch(Dispatchers.IO) {
-            api.getWeather()
+            val apiResponse = api.getWeather()
+            response = apiResponse
         }
     }
 

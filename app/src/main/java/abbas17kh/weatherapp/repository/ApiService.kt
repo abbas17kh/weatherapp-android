@@ -1,6 +1,8 @@
 package abbas17kh.weatherapp.repository
 
 import abbas17kh.weatherapp.BuildConfig
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
@@ -14,7 +16,7 @@ class ApiService {
 
 
 
-    fun getWeather(){
+    fun getWeather(): String{
         val request = Request.Builder()
             .url("$baseUrl/forecast.json?key=$key&q=$city&aqi=no&days=$days&alerts=$alerts")
             .build()
@@ -29,5 +31,7 @@ class ApiService {
             ""
         }
         println("API Response: $responseString")
+
+        return responseString
     }
 }
