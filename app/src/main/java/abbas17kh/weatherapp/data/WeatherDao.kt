@@ -1,4 +1,4 @@
-package abbas17kh.weatherapp.ui.data
+package abbas17kh.weatherapp.data
 
 import androidx.room.Dao
 import androidx.room.Insert

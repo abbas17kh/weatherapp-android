@@ -1,4 +1,4 @@
-package abbas17kh.weatherapp.ui.data
+package abbas17kh.weatherapp.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
