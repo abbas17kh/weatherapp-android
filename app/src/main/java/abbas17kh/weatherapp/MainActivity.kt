@@ -1,5 +1,7 @@
 package abbas17kh.weatherapp
 
+import abbas17kh.weatherapp.repository.ApiService
+import abbas17kh.weatherapp.ui.screen.MainViewModel
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import abbas17kh.weatherapp.ui.theme.TestWeatherappTheme
+import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +22,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TestWeatherappTheme(dynamicColor = false) {
-
+//                val viewModel = koinViewModel<MainViewModel>()
+//                viewModel.getWeather()
             }
         }
     }

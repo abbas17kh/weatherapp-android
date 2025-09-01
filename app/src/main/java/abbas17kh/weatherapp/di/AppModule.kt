@@ -2,6 +2,7 @@ package abbas17kh.weatherapp.di
 
 import abbas17kh.weatherapp.data.Database
 import abbas17kh.weatherapp.data.WeatherDao
+import abbas17kh.weatherapp.repository.ApiService
 import abbas17kh.weatherapp.ui.screen.MainViewModel
 import org.koin.core.module.dsl.viewModel
 import androidx.room.Room
@@ -20,6 +21,7 @@ val appModule = module {
     }
 
     single<WeatherDao> { get<Database>().weatherDao() }
+    single<ApiService> { ApiService() }
 
-    viewModel { MainViewModel() }
+    viewModel { MainViewModel(get()) }
 }
