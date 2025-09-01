@@ -69,6 +69,7 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.androidx.compose)
     implementation(libs.kotlinx.serialization.core)
+    implementation(libs.kotlinx.serialization.json)
     implementation(platform(libs.okhttp.bom))
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)

@@ -23,6 +23,7 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationCore" }
 logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor" }
 okhttp = { module = "com.squareup.okhttp3:okhttp" }
 okhttp-bom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okhttpBom" }
