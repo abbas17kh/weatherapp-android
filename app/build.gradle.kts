@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -7,6 +9,18 @@ plugins {
     alias(libs.plugins.devtools.ksp)
     alias(libs.plugins.jetbrains.kotlin.serialization)
 }
+
+fun getApiKey(propertyKey: String): String {
+    val properties = Properties()
+    val localPropertiesFile = project.rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        FileInputStream(localPropertiesFile).use { fis ->
+            properties.load(fis)
+        }
+    }
+    return properties.getProperty(propertyKey, "")
+}
+
 
 android {
     namespace = "abbas17kh.weatherapp"
@@ -19,7 +33,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "WEATHER_API_KEY", "\"${getApiKey("weatherKey")}\"")
     }
 
     buildTypes {
@@ -29,6 +43,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "WEATHER_API_KEY", "\"${getApiKey("weatherKey")}\"")
+        }
+        debug {
+            buildConfigField("String", "WEATHER_API_KEY", "\"${getApiKey("weatherKey")}\"")
         }
     }
     compileOptions {
