@@ -1,6 +1,8 @@
 package abbas17kh.weatherapp
 
 import abbas17kh.weatherapp.repository.ApiService
+import abbas17kh.weatherapp.ui.screen.MainScreen
+import abbas17kh.weatherapp.ui.screen.MainScreenContentPreview
 import abbas17kh.weatherapp.ui.screen.MainViewModel
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -21,9 +23,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TestWeatherappTheme(dynamicColor = false) {
-//                val viewModel = koinViewModel<MainViewModel>()
+            TestWeatherappTheme(dynamicColor = false, darkTheme = true) {
+                val viewModel = koinViewModel<MainViewModel>()
 //                viewModel.getWeather()
+//                MainScreen(viewModel)
+
+                MainScreenContentPreview()
             }
         }
     }
