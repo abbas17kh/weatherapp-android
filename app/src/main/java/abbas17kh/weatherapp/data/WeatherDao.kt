@@ -18,4 +18,7 @@ interface WeatherDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun cacheWeather(weather: WeatherCacheEntity)
+
+    @Query("SELECT * FROM weather_cache ORDER BY lastUpdated DESC LIMIT 1")
+    suspend fun getLastCachedWeather(): WeatherCacheEntity?
 }
