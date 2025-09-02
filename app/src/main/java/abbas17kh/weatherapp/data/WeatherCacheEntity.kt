@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "weather_cache")
 data class WeatherCacheEntity(
     @PrimaryKey val locationName: String,
-    val weatherData: String,
-    val lastUpdated: String
+    val weatherResponseJson: String,
+    val lastUpdated: Long
 )
