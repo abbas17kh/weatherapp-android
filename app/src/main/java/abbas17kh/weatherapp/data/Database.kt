@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [AppSettingsEntity::class, WeatherCacheEntity::class],
+    entities = [AppSettingsEntity::class, CurrentWeatherCacheEntity::class],
     version = 1
 )
 
