@@ -7,6 +7,7 @@ import abbas17kh.weatherapp.data.json.WeatherResponse
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -29,6 +30,19 @@ class MainViewModel(
     val jsonParser = Json {
         ignoreUnknownKeys = true
         isLenient = true
+    }
+
+    init {
+        scope.launch {
+//            println("Delay for 2 seconds")
+//            delay(2000)
+//            getWeather()
+//            println("Retrieved weather from API")
+//            println("Delay for 1 second")
+//            delay(1000)
+            println("Loading cached weather")
+            loadCachedWeather()
+        }
     }
 
     fun getWeatherFromApi(
@@ -80,6 +94,19 @@ class MainViewModel(
                     lastUpdated = weather?.current?.lastUpdated?: ""
                 )
             )
+        }
+    }
+
+    fun loadCachedWeather(){
+        scope.launch(Dispatchers.IO) {
+            val test = weatherDao.getCachedWeather(
+                location = "Berlin"
+            )
+
+            println("Retrieved: " +
+                    "${test?.locationName}" +
+                    "${test?.weatherData}" +
+                    "${test?.lastUpdated}")
         }
     }
 
