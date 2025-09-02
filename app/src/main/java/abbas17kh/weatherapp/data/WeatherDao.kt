@@ -14,8 +14,8 @@ interface WeatherDao {
     suspend fun saveSettings(settings: AppSettingsEntity)
 
     @Query("SELECT * FROM weather_cache WHERE locationName = :location")
-    suspend fun getCachedWeather(location: String): CurrentWeatherCacheEntity?
+    suspend fun getCachedWeather(location: String): WeatherCacheEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun cacheWeather(weather: CurrentWeatherCacheEntity)
+    suspend fun cacheWeather(weather: WeatherCacheEntity)
 }

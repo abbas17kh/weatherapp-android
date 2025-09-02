@@ -1,13 +1,12 @@
 package abbas17kh.weatherapp.ui.screen
 
 import abbas17kh.weatherapp.BuildConfig
-import abbas17kh.weatherapp.data.CurrentWeatherCacheEntity
+import abbas17kh.weatherapp.data.WeatherCacheEntity
 import abbas17kh.weatherapp.data.WeatherDao
 import abbas17kh.weatherapp.data.json.WeatherResponse
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -88,7 +87,7 @@ class MainViewModel(
     fun cacheWeather(weather: WeatherResponse?){
         scope.launch(Dispatchers.IO) {
             weatherDao.cacheWeather(
-                weather = CurrentWeatherCacheEntity(
+                weather = WeatherCacheEntity(
                     locationName = weather?.location?.name?:"",
                     weatherData = weather?.current?.condition?.text?:"",
                     lastUpdated = weather?.current?.lastUpdated?: ""
