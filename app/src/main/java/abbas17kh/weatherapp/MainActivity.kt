@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TestWeatherappTheme(dynamicColor = false, darkTheme = true) {
+            TestWeatherappTheme(dynamicColor = false) {
                 val viewModel = koinViewModel<MainViewModel>()
                 MainScreen(viewModel)
             }
