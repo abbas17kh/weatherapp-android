@@ -32,8 +32,8 @@ A simple Android weather application that provides current weather information a
 
 ## Demo Videos
 
-- [App Demo 1](https://github.com/user-attachments/assets/2ebf16ed-ad05-48ae-a9e5-1c9815b8c9a5)
-- [App Demo 2](https://github.com/user-attachments/assets/55baa4d2-6cea-46bd-98e3-50a5a8f72361)
+- ![App Demo 1](https://github.com/user-attachments/assets/2ebf16ed-ad05-48ae-a9e5-1c9815b8c9a5)
+- ![App Demo 2](https://github.com/user-attachments/assets/55baa4d2-6cea-46bd-98e3-50a5a8f72361)
 
 ## Technical Stack
 
